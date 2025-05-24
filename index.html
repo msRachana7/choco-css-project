@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The world of chocolate</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=DynaPuff:wght@400;700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    [data-bs-theme=dark]{
+        --bs-btn-close-filter: invert(1) grayscale(100%) brightness(200%);
+    }
+
+    /*.top{
+        background-color: #452d1f;
+    }*/
+
+    .nav-link {
+    color: #f8f9fa !important;
+    }
+    .nav-link.active {
+    background-color: #8b5e3c !important;
+    border-radius: 0.25rem;
+    }
+
+    [data-bs-theme="light"] .nav-link {
+      color: #333 !important;  /* dark gray for light mode */
+    }
+    [data-bs-theme="light"] .nav-link.active {
+      background-color: #8b5e3c !important;
+      color: white !important;
+    }
+    .titlee{
+        font-family: "Cabin Sketch", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    }   
+
+    .whitecol{
+      color: #e3d5cc;
+      font-family: "Montserrat Alternates", sans-serif;
+      font-weight: 800;
+      font-style: normal;
+
+    }
+
+    .btn-primary {
+     background-color: #8b5e3c !important;
+     border-color: #8b5e3c !important;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #5c3a00 !important; /* A darker brown for hover/focus */
+      border-color: #5c3a00 !important;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header class="d-flex flex-wrap justify-content-center align-items-center py-3 border-bottom top"> 
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none mx-3"> 
+      <img src="./choco.png" alt="chocolate" height="50" class="titlee">
+      <span class="fs-1 titlee">Cocoa Dreamscape</span>
+    </a> 
+
+    <ul class="nav nav-pills mx-3"> 
+      <li class="nav-item"><a id="home" class="nav-link active" aria-current="page">Home</a></li> 
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="feature" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Features
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#" id="dark-mode">Dark mode</a></li>
+          <li><a class="dropdown-item" href="#" id="light-mode">Light mode</a></li>
+        </ul>
+      </li>
+      
+      <li class="nav-item"><a href="#popular-brands" class="nav-link">Buy</a></li>  
+      <li class="nav-item">
+        <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#infoModal">info</a>
+      </li>
+      <li class="nav-item"><a href="#aboutt" class="nav-link">About</a></li>   
+    </ul> 
+  </header>
+
+  <script>
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-bs-theme', savedTheme);
+    } else {
+    
+    document.documentElement.setAttribute('data-bs-theme', 'dark');
+    }
+
+
+    document.getElementById('light-mode').addEventListener('click', e => {
+      e.preventDefault();
+      document.documentElement.setAttribute('data-bs-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    });
+
+    document.getElementById('dark-mode').addEventListener('click', e => {
+      e.preventDefault();
+      document.documentElement.setAttribute('data-bs-theme', 'dark');
+      localStorage.setItem('theme', 'dark'); 
+    });
+
+    document.querySelectorAll('.titlee').forEach(el => {
+      el.addEventListener('click', function(event) {
+      event.preventDefault();  
+    });
+    });
+
+  </script>
+
+    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel"> 
+      <div class="carousel-indicators"> 
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button> 
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button> 
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button></div>
+        <div class="carousel-inner"> 
+          <div class="carousel-item active"> 
+            <img src="./ch2.png" class="bd-placeholder-img" width="100%" height="600px" style="object-fit: cover;" alt="Slide image">
+              <div class="container"> 
+                <div class="carousel-caption text-start"> 
+                  <h1 class="whitecol">What is chocolate?</h1> 
+                  <p class="whitecol">Unwrapping the Origins, Ingredients, and Magic Behind the World's Favorite Treat</p>
+                   <p><a class="btn btn-lg btn-primary" href="#what-is-chocolate">Learn more</a></p>
+                   </div> 
+                  </div> 
+                </div> 
+                <div class="carousel-item"> 
+                  <img src="./ch1.jpg" class="bd-placeholder-img" width="100%" height="600px" style="object-fit: cover;" alt="Slide image">
+                    <div class="container"> 
+                      <div class="carousel-caption">
+                         <h1 class="whitecol">Where did it come from?</h1> 
+                         <p class="whitecol">Tracing Chocolate’s Journey from Ancient Civilizations to Global Delight</p> 
+                         <p><a class="btn btn-lg btn-primary" href="#where-did-it-come-from">Learn more</a></p> 
+                        </div> 
+                      </div> 
+                    </div> 
+                    <div class="carousel-item"> 
+                      <img src="./landscape_image.png" class="bd-placeholder-img" width="100%" height="600px" style="object-fit: cover;" alt="Slide image">
+                        <div class="container"> 
+                          <div class="carousel-caption text-end"> 
+                            <h1 class="whitecol">-Popular brands-</h1> 
+                            <p class="whitecol">Exploring the Giants Behind the Worlds Most Beloved Chocolate Creations</p> 
+                            <p><a class="btn btn-lg btn-primary" href="#popular-brands">Learn more</a></p> 
+                          </div> 
+                        </div> 
+                      </div> 
+                    </div> 
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev"> 
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span> 
+                      <span class="visually-hidden">Previous</span> </button> 
+                      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next"> 
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span> 
+                        <span class="visually-hidden">Next</span> 
+                      </button> 
+                    </div>
+    <br>
+    <br>
+    <br>
+    <div class="px-4 py-5 my-5 text-center"> 
+      <h1 id="what-is-chocolate" class="display-5 fw-bold text-body-emphasis"></h1>
+      <div class="col-lg-6 mx-auto"> 
+        <p class="lead mb-4"> Chocolate is more than just a sweet treat—it's a blend of history, science, and a little bit of magic. From rich, dark bars to creamy milk chocolate and velvety truffles, this delicious indulgence has captured hearts all over the world. But what exactly is chocolate? At its core, chocolate is made from the beans of the cacao tree, a tropical plant native to Central and South America. These beans are packed with natural compounds like theobromine and flavonoids, which not only give chocolate its distinctive taste but also contribute to its mood-lifting powers. </p> 
+        <p class="lead mb-4"> The journey from bean to bar is a fascinating one. It begins with harvesting ripe cacao pods, splitting them open to reveal the beans nestled inside. The beans are fermented for several days under banana leaves, which helps bring out their complex flavor. After drying under the sun, they’re roasted to perfection, unlocking that rich, chocolatey aroma we all love. The roasted beans are cracked open to release the nibs, which are ground into a thick, smooth paste called chocolate liquor. Depending on the recipe, this liquor is blended with sugar, milk, and cocoa butter, then refined, conched (stirred and heated), and tempered to create that glossy finish and satisfying snap. Finally, it’s poured into molds and cooled—ready to become your favorite chocolate creation.</p> 
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"> 
+          
+        </div> 
+      </div> 
+    </div>
+
+    <div class="px-4 pt-5 my-5 text-center border-bottom"> 
+      <h1  id="where-did-it-come-from" class="display-4 fw-bold text-body-emphasis">Where did it come from?</h1> 
+      <div class="col-lg-6 mx-auto"> 
+        <p class="lead mb-4">Chocolates journey began over 3,000 years ago deep in the tropical rainforests of Central and South America. The ancient Olmecs, one of the earliest known civilizations in the region, were the first to cultivate cacao trees, discovering the magical beans that would forever change the course of history. For these early people, cacao was far more than just a food; it was a sacred treasure, often associated with gods and spiritual ceremonies. The beans were ground into a rich, bitter beverage, sometimes flavored with chili or spices, which was consumed during important rituals and by the elite.</p> 
+        <p class="lead mb-4">Later, the Mayans and Aztecs elevated cacao to even greater cultural significance. For the Mayans, cacao was a symbol of life and fertility, and their mythology tells of gods gifting cacao to humans as a divine blessing. The Aztecs, too, prized cacao so highly that it was used as currency and given as gifts to warriors and nobility. Their version of chocolate was still a dark, frothy drink, often mixed with vanilla or chili peppers, believed to boost energy and vitality. This ancient chocolate was a far cry from the sweet bars we enjoy today, but it laid the foundation for chocolate’s enduring allure.</p> 
+        <p class="lead mb-4">With the arrival of Europeans in the 16th century, chocolate began its transformation into the beloved treat we know now. Spanish explorers brought cacao beans back to Europe, where sugar and milk were added to tame the bitterness, giving rise to the creamy chocolate drinks and confections that soon captivated royal courts and commoners alike. Over centuries, chocolate spread across the globe, evolving with advances in technology and culinary creativity. Today, this ancient gift from the Americas connects cultures worldwide through its rich history and irresistible flavor.</p> 
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"> 
+          </div> 
+        </div> 
+        <div class="container px-5 mb-4" style="max-width: 900px;">
+          <div class="ratio ratio-16x9 border rounded-3 shadow-lg">
+            <iframe 
+              src="https://www.youtube.com/embed/ibjUpk9Iagk" 
+              title="YouTube video" 
+              allowfullscreen 
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center"> 
+      <h1 id="popular-brands" class="display-4 fw-bold text-body-emphasis">Popular brands</h1>
+      <div class="col-lg-6 mx-auto">  
+        <p class="lead mb-4">From the silky smoothness of Switzerland’s Toblerone to the rich decadence of Belgium’s Godiva, chocolate lovers are spoiled for choice. In the U.S., Hershey’s and Reese’s have become household names, while Ferrero Rocher and Lindt offer a touch of luxury worldwide. Whether it's the nostalgic crunch of a Kit Kat or the creamy indulgence of Dairy Milk, these iconic brands have turned simple cocoa into irresistible experiences, each bite carrying its own story and legacy. These are the 3 most popular choclate brands right now.</p>
+     </div>
+    </div>
+     <div class="container px-5">
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center"> 
+        <div class="col"> 
+          <div class="card mb-4 rounded-3 shadow-sm"> 
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Cadbury</h4> </div> 
+              <div class="card-body"> 
+                <h1 class="card-title pricing-card-title">$1.50<small class="text-body-secondary fw-light">/100g</small></h1>
+                <ul class="list-unstyled mt-3 mb-4"> 
+                  <li>A British chocolate brand</li> 
+                  <li>known for its Dairy Milk</li> 
+                  <li>and other popular bars</li> 
+                </ul> 
+                <button type="button" class="w-100 btn btn-lg btn-primary" onclick="window.location.href='https://www.amazon.in/s?k=cadbury+chocolate'" class="w-100 btn btn-lg btn-primary" target="_blank">buy now</button> 
+              </div> 
+            </div> 
+          </div> 
+          <div class="col"> 
+            <div class="card mb-4 rounded-3 shadow-sm"> 
+              <div class="card-header py-3"> 
+                <h4 class="my-0 fw-normal">Lindt</h4> 
+              </div> 
+                <div class="card-body"> 
+                  <h1 class="card-title pricing-card-title">$6<small class="text-body-secondary fw-light">/100g</small></h1> 
+                  <ul class="list-unstyled mt-3 mb-4"> 
+                    <li>A Swiss chocolate brand</li> 
+                    <li>renowned for its rich and</li> 
+                    <li>smooth chocolate truffles</li> 
+                    </ul> 
+                    <button type="button" class="w-100 btn btn-lg btn-primary" onclick="window.location.href='https://www.flipkart.com/search?q=lindt+chocolate'">Buy now</button> 
+                  </div> 
+                </div> 
+              </div> 
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm"> 
+                  <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Nestlé</h4> </div> 
+                    <div class="card-body">
+                      <h1 class="card-title pricing-card-title">$3<small class="text-body-secondary fw-light">/100g</small></h1> 
+                      <ul class="list-unstyled mt-3 mb-4"> 
+                        <li>A Swiss brand offering</li> 
+                        <li>a wide range of chocolates,</li> 
+                        <li>including KitKat</li> </ul> 
+                        <button type="button" class="w-100 btn btn-lg btn-primary" onclick="window.location.href='https://www.amazon.in/s?k=nestle+chocolate'">Buy now</button> 
+                      </div> 
+                    </div> 
+                  </div> 
+                </div>
+              </div>
+
+      <br>
+      <br>
+    <div class="container my-5">
+  <h2 class="text-center mb-4">Top 6 Popular Chocolates</h2>
+  <div class="col-lg-8 mx-auto">  
+    <p class="lead mb-4 text-center">While these top-tier names dominate the global chocolate scene, a closer look reveals a diverse lineup of brands that blend heritage, flavor, and affordability. From European luxury to American classics and rising Indian favorites, each brand brings something unique to the table. Here's a snapshot of six popular chocolate brands ranked by their global appeal, signature products, and average price per 100 grams:</p>
+     </div>
+    <br>
+  <div class="d-flex justify-content-center">
+    <div class="table-responsive mx-auto" style="max-width: 1200px;">
+      <table class="table table-striped table-hover table-bordered text-center fs-5">
+        <thead class="table-dark">
+        <tr>
+          <th>Rank</th>
+          <th>Brand</th>
+          <th>Country</th>
+          <th>Popular Product</th>
+          <th>Price/100g</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr>
+          <td>1</td>
+          <td>Cadbury</td>
+          <td>UK</td>
+          <td>Dairy Milk</td>
+          <td>$1.50</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Lindt</td>
+          <td>Switzerland</td>
+          <td>Excellence Dark</td>
+          <td>$2.20</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Hershey's</td>
+          <td>USA</td>
+          <td>Milk Chocolate Bar</td>
+          <td>$1.20</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Toblerone</td>
+          <td>Switzerland</td>
+          <td>Honey Almond Nougat</td>
+          <td>$2.00</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Ferrero Rocher</td>
+          <td>Italy</td>
+          <td>Hazelnut Pralines</td>
+          <td>$2.50</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Amul</td>
+          <td>India</td>
+          <td>Dark Chocolate</td>
+          <td>$0.80</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<div class="container"> 
+  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top align-items-start"> 
+
+  
+   <div class="col mb-3"> 
+      <div class="d-flex align-items-center gap-2 mb-2">
+        
+        <img src="./choco.png" alt="chocolate" height="25" class="titlee">
+        <p class="mb-0 text-body-secondary" id="aboutt">2025 May 25th</p>
+        <p class="mb-0 text-body-secondary">Made by Rachana.M</p>
+      </div>
+    </div>
+
+    <div class="col mb-3"></div> 
+    <div class="col mb-3"></div> 
+    <div class="col mb-3"></div> 
+
+    <div class="col mb-3 text-end"> 
+      <h5>Section</h5> 
+      <ul class="nav flex-column align-items-end"> 
+        <li class="nav-item mb-2"><a href="#home" class="nav-link p-0 text-body-secondary">Home</a></li> 
+        <li class="nav-item mb-2"><a href="#feature" class="nav-link p-0 text-body-secondary">Features</a></li> 
+        <li class="nav-item mb-2"><a href="#popular-brands" class="nav-link p-0 text-body-secondary">Pricing</a></li> 
+        <a href="#" class="nav-link p-0 text-body-secondary" data-bs-toggle="modal" data-bs-target="#infoModal">info</a>
+
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary" onclick="event.preventDefault()" >About</a></li> 
+      </ul>
+    </div> 
+
+  </footer> 
+
+  <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-body p-5 text-center">
+       
+        <h2 class="fw-bold fs-2 mb-5">How was this website made?</h2>
+
+        <ul class="d-grid gap-3 list-unstyled small justify-content-center">
+          <li class="d-flex flex-column align-items-center gap-2">
+            <div class="text-center" style="max-width: 600px;">
+              <h4 class="mb-2 fw-semibold">Bootstrap CSS</h4>
+              <p class="fs-5 mb-0">
+                An open-source framework that helps developers build responsive and visually consistent web interfaces quickly using pre-defined styles and components.
+              </p>
+            </div>
+          </li>
+          <li class="d-flex flex-column align-items-center gap-2">
+            <svg class="bi text-warning flex-shrink-0" width="48" height="48" aria-hidden="true">
+              <use xlink:href="#bookmark-star"></use>
+            </svg>
+            <div class="text-center" style="max-width: 600px;">
+              <h4 class="mb-2 fw-semibold">JavaScript</h4>
+              <p class="fs-5 mb-0">
+                A versatile programming language used to create dynamic and interactive content on websites.
+              </p>
+            </div>
+          </li>
+          <li class="d-flex flex-column align-items-center gap-2">
+            <svg class="bi text-primary flex-shrink-0" width="48" height="48" aria-hidden="true">
+              <use xlink:href="#film"></use>
+            </svg>
+            <div class="text-center" style="max-width: 600px;">
+              <h4 class="mb-2 fw-semibold">HTML</h4>
+              <p class="fs-5 mb-0">
+                The base of any website.
+              </p>
+            </div>
+          </li>
+        </ul>
+
+        
+        <button type="button" class="btn btn-lg btn-primary mt-4 w-100" data-bs-dismiss="modal">Awesome!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+
+
+    
